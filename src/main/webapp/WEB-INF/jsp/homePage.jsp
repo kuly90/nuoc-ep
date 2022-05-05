@@ -80,6 +80,10 @@ Author: Mr.Ly
                         </div>
                         <ul>
                             <li><a onclick="showAll()" style="cursor: pointer;">Tất Cả</a></li>
+                            <c:forEach var = "category" items = "${lstCategory}">
+                                <li><a href="#">${category.categoryName}</a></li>
+                            </c:forEach>
+                            <!-- 
                             <li><a onclick="showJuice()" style="cursor: pointer;">Nước Ép</a></li>
                             <li><a onclick="showFreshFruit()" style="cursor: pointer;">Sinh Tố</a></li>
                             <li><a href="#">Nước Mía</a></li>
@@ -87,7 +91,7 @@ Author: Mr.Ly
                             <li><a href="#">Trà</a></li>
                             <li><a href="#">Nước Dừa</a></li>
                             <li><a href="#">Trái Cây Tô</a></li>
-                            <li><a href="#">Nước Giải Khát</a></li>
+                            <li><a href="#">Nước Giải Khát</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -143,187 +147,54 @@ Author: Mr.Ly
                             <li data-filter=".pineapples">Dứa Thơm</li>
                             <li data-filter=".carrots">Cà Rốt</li>
                             <li data-filter=".pennywort">Rau Má</li>
+                            <li data-filter=".other">Khác</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-1.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" min = "0" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h5><a>Cam Ép</a></h5>
-                            <h6>20.000 VND</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-2.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Cam Dứa</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-3.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Cam Lê</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-4.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Cam Cà Rốt</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix lemons">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-5.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Chanh Tươi</a></h6>
-                            <h5>15.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix lemons">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-6.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Chanh Xí Muội</a></h6>
-                            <h5>15.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix lemons">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-6.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Chanh Dây Truyền Thống</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix lemons">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-6.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Chanh Dây Sữa</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix apples">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-7.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Táo</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix apples">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-8.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Táo Ổi</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix apples">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/featured/feature-8.jpg"></div>
-                        <div class="featured__item__text">
-                            <button onclick="minus()" type="button" class="btn btn-danger">
-                                <span>-</span>
-                            </button>
-                            <input type="number" id = "" value="0" style="border: none; width: 20%">
-                            <button onclick="plus()" type="button" class="btn btn-primary" >
-                                <span>+</span>
-                            </button>
-                            <h6><a href="#">Táo Dứa</a></h6>
-                            <h5>20.000 VND</h5>
-                        </div>
-                    </div>
-                </div>
+                <c:forEach var = "juice" items = "${lstJuice}">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix
+                        <c:choose>
+                            <c:when test="${juice.type eq 'O'}">
+                              oranges
+                            </c:when>
+                            <c:when test="${juice.type eq 'L'}">
+                              lemons
+                            </c:when>
+                            <c:when test="${juice.type eq 'A'}">
+                              apples
+                            </c:when>
+                            <c:when test="${juice.type eq 'P'}">
+                              pineapples
+                            </c:when>
+                            <c:when test="${juice.type eq 'C'}">
+                              carrots
+                            </c:when>
+                            <c:when test="${juice.type eq 'R'}">
+                              pennywort
+                            </c:when>
+                            <c:otherwise>
+                              other
+                            </c:otherwise>
+                        </c:choose>
+                    ">
+                      <div class="featured__item">
+                          <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/juice/${juice.imgName}"></div>
+                          <div class="featured__item__text">
+                              <button onclick="minus()" type="button" class="btn btn-danger">
+                                  <span>-</span>
+                              </button>
+                              <input type="number" min = "0" id = "" value="0" style="border: none; width: 20%">
+                              <button onclick="plus()" type="button" class="btn btn-primary" >
+                                  <span>+</span>
+                              </button>
+                              <h5><a>${juice.productName}</a></h5>
+                              <h6>${juice.getPriceFormat()} VND</h6>
+                          </div>
+                      </div>
+                  </div>
+                </c:forEach>
             </div>
         </div>
     </section>
@@ -348,7 +219,7 @@ Author: Mr.Ly
     </div>
     <!-- Banner End -->
 
-    <!-- Latest Product Section Begin -->
+    <!-- Fresh Fruit Product Section Begin -->
     <section class="latest-product spad">
         <div class="container">
             <div class="row">
@@ -356,10 +227,33 @@ Author: Mr.Ly
                     <div class="latest-product__text">
                         <h4>Sinh Tố</h4>
                         <div class="latest-product__slider owl-carousel">
+                            <c:forEach var = "i" begin = "0" end = "${freFruCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "fresh" items = "${listLstFres.get(i)}">
+                                        <a class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/fresh-fruit/${fresh.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="minus()" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="number" id = "" value="0" style="border: none; width: 20%">
+                                                <button onclick="plus()" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${fresh.getProductName()}</span>
+                                                <h6>${fresh.getPriceFormat()} VND</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
+                            <%-- 
                             <div class="latest-prdouct__slider__item">
                                 <a class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
+                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-1.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <button onclick="minus()" type="button" class="btn btn-danger">
@@ -375,7 +269,7 @@ Author: Mr.Ly
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
+                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-2.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <button onclick="minus()" type="button" class="btn btn-danger">
@@ -391,7 +285,7 @@ Author: Mr.Ly
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
+                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-3.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <button onclick="minus()" type="button" class="btn btn-danger">
@@ -409,7 +303,7 @@ Author: Mr.Ly
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
+                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-1.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <button onclick="minus()" type="button" class="btn btn-danger">
@@ -425,7 +319,7 @@ Author: Mr.Ly
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
+                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-2.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <button onclick="minus()" type="button" class="btn btn-danger">
@@ -441,7 +335,7 @@ Author: Mr.Ly
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
+                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-3.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <button onclick="minus()" type="button" class="btn btn-danger">
@@ -456,6 +350,7 @@ Author: Mr.Ly
                                     </div>
                                 </a>
                             </div>
+                         --%>
                         </div>
                     </div>
                 </div>
