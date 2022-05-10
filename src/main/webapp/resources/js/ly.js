@@ -83,7 +83,7 @@ function shopingCart(action) {
     window.location.href = '/shoppingCart?lstProductId=' + productIdArray + '&lstQuantity=' + quantityArray;
 }
 
-function ChangeNumberCard(type, name) {
+function ChangeNumberCart(type, name) {
 	// get number of product inside input
     var input = document.getElementsByName(name);
     // get number of item cart order

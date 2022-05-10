@@ -134,11 +134,11 @@ Author: Mr.Ly
                                             ${cart.product.getPriceFormat()} VND
                                         </td>
                                         <td class="shoping__cart__quantity">
-                                            <button onclick="ChangeNumberCard('0', '${cart.product.productId}')" type="button" class="btn btn-danger">
+                                            <button onclick="ChangeNumberCart('0', '${cart.product.productId}')" type="button" class="btn btn-danger">
                                                 <span>-</span>
                                             </button>
                                             <input type="text" name = "${cart.product.productId}" value="${cart.product.quantity}" style="border: none; width: 20%">
-                                            <button onclick="ChangeNumberCard('1', '${cart.product.productId}')" type="button" class="btn btn-primary" >
+                                            <button onclick="ChangeNumberCart('1', '${cart.product.productId}')" type="button" class="btn btn-primary" >
                                                 <span>+</span>
                                             </button>
                                         </td>
