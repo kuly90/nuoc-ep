@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,17 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chili.common.Common;
+import com.chili.model.Card;
 import com.chili.model.Category;
+import com.chili.model.Order;
 import com.chili.model.Product;
 import com.chili.model.User;
 import com.chili.service.UserService;
 import com.chili.service.CategoryService;
+import com.chili.service.ProductService;
 
 /**
  * Controller
+ * 
  * @author Ton Ly
- * @version 0.1
- * 2022.06
+ * @version 0.1 2022.06
  *
  */
 @Controller
@@ -36,9 +40,13 @@ public class MainController {
 
   @Autowired
   CategoryService cateService;
+  
+  @Autowired
+  ProductService proService;
 
   /**
    * process home page
+   * 
    * @param model
    * @return home page
    */
@@ -71,7 +79,7 @@ public class MainController {
 
     // get Sugarcane Juice
     // new instance Category
-    Category sugarJui =  new Category();
+    Category sugarJui = new Category();
     sugarJui = cateService.getCategoryById("CLI03VI", "vi");
     // get list of Sugarcane Juice
     List<Product> lstSugarJui = new ArrayList<Product>();
@@ -82,7 +90,7 @@ public class MainController {
 
     // get Yogurt
     // new instance Category
-    Category yogurt =  new Category();
+    Category yogurt = new Category();
     yogurt = cateService.getCategoryById("CLI04VI", "vi");
     // get list of Yogurt
     List<Product> lstYogurt = new ArrayList<Product>();
@@ -93,7 +101,7 @@ public class MainController {
 
     // get Tea
     // new instance Category
-    Category tea =  new Category();
+    Category tea = new Category();
     tea = cateService.getCategoryById("CLI05VI", "vi");
     // get list of Tea
     List<Product> lstTea = new ArrayList<Product>();
@@ -102,9 +110,9 @@ public class MainController {
     List<List<Product>> listLstTea = new ArrayList<List<Product>>();
     listLstTea = common.lstListPro(lstTea);
 
-    // get Coconut 
+    // get Coconut
     // new instance Category
-    Category coconut  =  new Category();
+    Category coconut = new Category();
     coconut = cateService.getCategoryById("CLI06VI", "vi");
     // get list of Coconut
     List<Product> lstCoconut = new ArrayList<Product>();
@@ -112,10 +120,10 @@ public class MainController {
     // get number of column of Coconut
     List<List<Product>> listLstCoconut = new ArrayList<List<Product>>();
     listLstCoconut = common.lstListPro(lstCoconut);
-    
+
     // get Bowl Of Fruit
     // new instance Category
-    Category bow  =  new Category();
+    Category bow = new Category();
     bow = cateService.getCategoryById("CLI07VI", "vi");
     // get list of Bowl Of Fruit
     List<Product> lstBowl = new ArrayList<Product>();
@@ -123,10 +131,10 @@ public class MainController {
     // get number of column of Bowl Of Fruit
     List<List<Product>> listLstBowl = new ArrayList<List<Product>>();
     listLstBowl = common.lstListPro(lstBowl);
-    
+
     // get Bowl Of Soft Drink
     // new instance Category
-    Category softDrink  =  new Category();
+    Category softDrink = new Category();
     softDrink = cateService.getCategoryById("CLI08VI", "vi");
     // get list of Soft Drink
     List<Product> lstSoftDrink = new ArrayList<Product>();
@@ -134,7 +142,7 @@ public class MainController {
     // get number of column of Soft Drink
     List<List<Product>> listLstSoftDrink = new ArrayList<List<Product>>();
     listLstSoftDrink = common.lstListPro(lstSoftDrink);
-    
+
     model.addAttribute("lstCategory", lstCategory);
     model.addAttribute("lstJuice", lstJuice);
     // column of fresh fruit
@@ -161,6 +169,33 @@ public class MainController {
 
     return "homePage";
   }
+
+  @RequestMapping("/shoppingCart")
+  public String shoppingCart(Model model,
+          @RequestParam(value = "lstProductId") List<String> lstProductId,
+          @RequestParam(value = "lstQuantity") List<Integer> lstQuantity) {
+
+    List<Card> lstCard = new ArrayList<Card>();
+    for (int i = 0; i < lstProductId.size(); i++) {
+        UUID uuid = UUID.randomUUID();
+        // new instance card
+        Card card = new Card();
+        // new instance Product
+        Product product = proService.getProductById(lstProductId.get(i), "vi");
+        // set Quantity order
+        product.setQuantity(lstQuantity.get(i));
+        // set price
+        int priceOfCard = lstQuantity.get(i) * product.getPrice();
+        // set info for card
+        card.setCardId(uuid.toString());
+        card.setProduct(product);
+        card.setPrice(priceOfCard);
+        lstCard.add(card);
+    }
+    model.addAttribute("lstCard", lstCard);
+    return "shoppingCart";
+  }
+
   /*
    * @RequestMapping("/login") public String login(Model
    * model, @ModelAttribute("userForm") User userForm) {
@@ -187,5 +222,5 @@ public class MainController {
    * 
    * }
    */
-   
+
 }

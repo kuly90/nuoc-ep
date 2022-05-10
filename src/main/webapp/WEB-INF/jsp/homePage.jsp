@@ -171,7 +171,7 @@ Author: Mr.Ly
                         </c:choose>
                     ">
                       <div class="featured__item">
-                          <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/juice/${juice.imgName}"></div>
+                          <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/product/${juice.imgName}"></div>
                           <div class="featured__item__text">
                               <button onclick="ChangeNumber('0', '${juice.getProductId()}')" type="button" class="btn btn-danger">
                                   <span>-</span>
@@ -224,7 +224,7 @@ Author: Mr.Ly
                                     <c:forEach var = "fresh" items = "${listLstFres.get(i)}">
                                         <a class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/fresh-fruit/${fresh.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${fresh.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${fresh.getProductId()}')" type="button" class="btn btn-danger">
@@ -254,7 +254,7 @@ Author: Mr.Ly
                                     <c:forEach var = "sugarJuice" items = "${listLstSugJui.get(i)}">
                                         <a class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/sugarcaneJuice/${sugarJuice.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${sugarJuice.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${sugarJuice.getProductId()}')" type="button" class="btn btn-danger">
@@ -284,7 +284,7 @@ Author: Mr.Ly
                                     <c:forEach var = "yogurt" items = "${listLstYogurt.get(i)}">
                                         <a class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/yogurt/${yogurt.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${yogurt.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${yogurt.getProductId()}')" type="button" class="btn btn-danger">
@@ -345,7 +345,7 @@ Author: Mr.Ly
                                     <c:forEach var = "coconut" items = "${listLstCoconut.get(i)}">
                                         <a class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/coconut/${coconut.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${coconut.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${coconut.getProductId()}')" type="button" class="btn btn-danger">
@@ -374,7 +374,7 @@ Author: Mr.Ly
                                     <c:forEach var = "bowl" items = "${listLstBowl.get(i)}">
                                         <a  class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/bowl/${bowl.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${bowl.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${bowl.getProductId()}')" type="button" class="btn btn-danger">
@@ -406,7 +406,7 @@ Author: Mr.Ly
                                     <c:forEach var = "softDrink" items = "${listLstSoftDrink.get(i)}">
                                         <a class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/softDrink/${softDrink.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${softDrink.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${softDrink.getProductId()}')" type="button" class="btn btn-danger">
@@ -500,7 +500,9 @@ Author: Mr.Ly
     </footer>
     <!-- Footer Section End -->
       <div class="container" style="position: relative;">
-          <button onclick="shopingCart()" type="button" class="btn btn-danger" style="position: fixed; bottom: 1%; right:20%; z-index: 10;"> Giao Hàng
+          <c:url var = "action" value="/shoppingCart"/>
+          <button onclick="shopingCart('${action}')" type="button" class="btn btn-danger" disabled="disabled" id = "btnCart"
+                   style="position: fixed; bottom: 1%; right:20%; z-index: 10;"> Giao Hàng
               <span class="badge badge-light" id ="shoppingCart">0</span>
           </button>
       </div>

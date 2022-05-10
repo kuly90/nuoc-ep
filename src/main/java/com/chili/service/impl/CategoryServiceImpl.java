@@ -32,7 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
   public List<Category> getCategory(String lang) {
 
     // get list of category
-    List<Category> listCategory = (List<Category>) cateRepo.listCategory(lang);
+    List<Category> listCategory = (List<Category>) cateRepo.findByLanguage(lang);
 
     return listCategory;
 
@@ -48,7 +48,7 @@ public class CategoryServiceImpl implements CategoryService {
   public Category getCategoryById(String categoryId, String lang) {
 
     // get Category BY ID
-    Category category = (Category) cateRepo.listCategoryById(categoryId, lang);
+    Category category = (Category) cateRepo.findByCategoryIdAndLanguage(categoryId, lang);
 
     return category;
 

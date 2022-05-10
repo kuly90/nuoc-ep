@@ -1,12 +1,14 @@
 package com.chili.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -39,26 +41,40 @@ public class Product implements Serializable  {
   @Column(name = "QUANTITY")
   private Integer quantity;
 
-  public Integer getQuantity() {
-	return quantity;
-}
-
-public void setQuantity(Integer quantity) {
-	this.quantity = quantity;
-}
-
-public String getType() {
-  return type;
-}
-
-  public void setType(String type) {
-    this.type = type;
-  }
+  @Column(name = "LANGUAGE")
+  private String language;
 
   @ManyToOne
   @JoinColumn(name = "CATEGORY_ID")
   private Category category;
 
+  @OneToMany(mappedBy = "product")
+  private List<Card> lstCard;
+
+  public Integer getQuantity() {
+    return quantity;
+  }
+
+  public List<Card> getLstCard() {
+    return lstCard;
+  }
+
+  public void setLstCard(List<Card> lstCard) {
+    this.lstCard = lstCard;
+  }
+
+
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
 
   public String getProductId() {
     return productId;
@@ -98,6 +114,15 @@ public String getProductName() {
   
   public void setCategory(Category category) {
     this.category = category;
+  }
+  
+
+  public String getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
   }
 
   public String getPriceFormat() {

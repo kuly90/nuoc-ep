@@ -13,5 +13,5 @@ import com.chili.model.Product;
  */
 public interface ProductRepository extends CrudRepository<Product, String> {
 
-  
+  Product findByProductIdAndLanguage(String productId, String lang);
 }

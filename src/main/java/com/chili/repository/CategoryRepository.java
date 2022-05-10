@@ -2,7 +2,6 @@ package com.chili.repository;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.chili.model.Category;
@@ -21,14 +20,14 @@ public interface CategoryRepository extends CrudRepository<Category, String> {
    * @param lang
    * @return listCategory
    */
-  @Query(value = "select CATEGORY_ID,\n"
-               + " CATEGORY_NAME,\n"
-               + " LANGUAGE\n"
-               + " from category\n"
-               + " where LANGUAGE = ?1\n"
-               + " order by CATEGORY_ID"
-               , nativeQuery = true)
-  List<Category> listCategory(String lang);
+//  @Query(value = "select CATEGORY_ID,\n"
+//               + " CATEGORY_NAME,\n"
+//               + " LANGUAGE\n"
+//               + " from category\n"
+//               + " where LANGUAGE = ?1\n"
+//               + " order by CATEGORY_ID"
+//               , nativeQuery = true)
+  List<Category> findByLanguage(String lang);
   
   /**
    * Get category By ID
@@ -36,13 +35,13 @@ public interface CategoryRepository extends CrudRepository<Category, String> {
    * @param lang
    * @return Category
    */
-  @Query(value = "select CATEGORY_ID,\n"
-          + " CATEGORY_NAME,\n"
-          + " LANGUAGE\n"
-          + " from category\n"
-          + " where CATEGORY_ID = ?1\n"
-          + " and LANGUAGE = ?2\n"
-          + " order by CATEGORY_ID"
-          , nativeQuery = true)
-Category listCategoryById(String categoryId, String lang);
+//  @Query(value = "select CATEGORY_ID,\n"
+//          + " CATEGORY_NAME,\n"
+//          + " LANGUAGE\n"
+//          + " from category\n"
+//          + " where CATEGORY_ID = ?1\n"
+//          + " and LANGUAGE = ?2\n"
+//          + " order by CATEGORY_ID"
+//          , nativeQuery = true)
+Category findByCategoryIdAndLanguage(String categoryId, String lang);
 }
