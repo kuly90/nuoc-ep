@@ -108,37 +108,37 @@ Author: Mr.Ly
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="card" items="${lstCard}">
+                                <c:forEach var="cart" items="${lstCart}">
                                     <tr>
                                         <td class="shoping__cart__item">
-                                            <img src="${contextPath}/resources/img/product/${card.product.imgName}" alt="">
+                                            <img src="${contextPath}/resources/img/product/${cart.product.imgName}" alt="">
                                             <h5>
                                                 <c:choose>
-                                                    <c:when test="${card.product.category.categoryId eq 'CLI01VI'}">
+                                                    <c:when test="${cart.product.category.categoryId eq 'CLI01VI'}">
                                                       Nước Ép
                                                     </c:when>
-                                                    <c:when test="${card.product.category.categoryId eq 'CLI01VI'}">
+                                                    <c:when test="${cart.product.category.categoryId eq 'CLI01VI'}">
                                                       Juice
                                                     </c:when>
-                                                    <c:when test="${card.product.category.categoryId eq 'CLI02VI'}">
+                                                    <c:when test="${cart.product.category.categoryId eq 'CLI02VI'}">
                                                       Sinh Tố
                                                     </c:when>
-                                                    <c:when test="${card.product.category.categoryId eq 'CLI02VI'}">
+                                                    <c:when test="${cart.product.category.categoryId eq 'CLI02VI'}">
                                                       Fresh Fruit
                                                     </c:when>
                                                 </c:choose>
-                                                ${card.product.productName}
+                                                ${cart.product.productName}
                                             </h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                            ${card.product.getPriceFormat()} VND
+                                            ${cart.product.getPriceFormat()} VND
                                         </td>
                                         <td class="shoping__cart__quantity">
-                                            <button onclick="ChangeNumberCard('0', '${card.product.productId}')" type="button" class="btn btn-danger">
+                                            <button onclick="ChangeNumberCard('0', '${cart.product.productId}')" type="button" class="btn btn-danger">
                                                 <span>-</span>
                                             </button>
-                                            <input type="text" name = "${card.product.productId}" value="${card.product.quantity}" style="border: none; width: 20%">
-                                            <button onclick="ChangeNumberCard('1', '${card.product.productId}')" type="button" class="btn btn-primary" >
+                                            <input type="text" name = "${cart.product.productId}" value="${cart.product.quantity}" style="border: none; width: 20%">
+                                            <button onclick="ChangeNumberCard('1', '${cart.product.productId}')" type="button" class="btn btn-primary" >
                                                 <span>+</span>
                                             </button>
                                         </td>

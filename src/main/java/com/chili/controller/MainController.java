@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chili.common.Common;
-import com.chili.model.Card;
+import com.chili.model.Cart;
 import com.chili.model.Category;
 import com.chili.model.Order;
 import com.chili.model.Product;
@@ -175,11 +175,11 @@ public class MainController {
           @RequestParam(value = "lstProductId") List<String> lstProductId,
           @RequestParam(value = "lstQuantity") List<Integer> lstQuantity) {
 
-    List<Card> lstCard = new ArrayList<Card>();
+    List<Cart> lstCart = new ArrayList<Cart>();
     for (int i = 0; i < lstProductId.size(); i++) {
         UUID uuid = UUID.randomUUID();
         // new instance card
-        Card card = new Card();
+        Cart cart = new Cart();
         // new instance Product
         Product product = proService.getProductById(lstProductId.get(i), "vi");
         // set Quantity order
@@ -187,12 +187,12 @@ public class MainController {
         // set price
         int priceOfCard = lstQuantity.get(i) * product.getPrice();
         // set info for card
-        card.setCardId(uuid.toString());
-        card.setProduct(product);
-        card.setPrice(priceOfCard);
-        lstCard.add(card);
+        cart.setCartId(uuid.toString());
+        cart.setProduct(product);
+        cart.setPrice(priceOfCard);
+        lstCart.add(cart);
     }
-    model.addAttribute("lstCard", lstCard);
+    model.addAttribute("lstCart", lstCart);
     return "shoppingCart";
   }
 

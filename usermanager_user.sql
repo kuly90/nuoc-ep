@@ -125,19 +125,19 @@ CREATE TABLE `order` (
 -- Table structure for table `card`
 --
 
-DROP TABLE IF EXISTS `card`;
+DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `card` (
-  `CARD_ID` varchar(50) NOT NULL,
+CREATE TABLE `cart` (
+  `CART_ID` varchar(50) NOT NULL,
   `PRODUCT_ID` char(11) NOT NULL,
   `ORDER_ID` varchar(50) NOT NULL,
-  `PRICE` int DEFAULT NULL,
-  PRIMARY KEY (`CARD_ID`),
-  UNIQUE KEY `CARD_ID_UNIQUE` (`PRODUCT_ID`),
+  `PRICE` int(11),
+  PRIMARY KEY (`CART_ID`),
+  UNIQUE KEY `CART_ID_UNIQUE` (`PRODUCT_ID`),
   KEY `car_pro_fk` (`PRODUCT_ID`),
+  CONSTRAINT `car_pro_fk` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `product` (`PRODUCT_ID`),
   KEY `car_ord_fk` (`ORDER_ID`),
-  CONSTRAINT `car_ord_fk` FOREIGN KEY (`ORDER_ID`) REFERENCES `order` (`ORDER_ID`),
-  CONSTRAINT `car_pro_fk` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `product` (`PRODUCT_ID`)
+  CONSTRAINT `car_ord_fk` FOREIGN KEY (`ORDER_ID`) REFERENCES `order` (`ORDER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;

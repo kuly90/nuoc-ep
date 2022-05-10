@@ -49,17 +49,17 @@ public class Product implements Serializable  {
   private Category category;
 
   @OneToMany(mappedBy = "product")
-  private List<Card> lstCard;
+  private List<Cart> lstCard;
 
   public Integer getQuantity() {
     return quantity;
   }
 
-  public List<Card> getLstCard() {
+  public List<Cart> getLstCard() {
     return lstCard;
   }
 
-  public void setLstCard(List<Card> lstCard) {
+  public void setLstCard(List<Cart> lstCard) {
     this.lstCard = lstCard;
   }
 

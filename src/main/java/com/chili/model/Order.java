@@ -38,7 +38,7 @@ public class Order implements Serializable {
   private Customer customer;
 
   @OneToMany(mappedBy = "order")
-  private List<Card> lstCard;
+  private List<Cart> lstCard;
 
   public String getOrderId() {
     return orderId;
@@ -72,11 +72,11 @@ public class Order implements Serializable {
     this.customer = customer;
   }
 
-  public List<Card> getLstCard() {
+  public List<Cart> getLstCard() {
     return lstCard;
   }
 
-  public void setLstCard(List<Card> lstCard) {
+  public void setLstCard(List<Cart> lstCard) {
     this.lstCard = lstCard;
   }
 

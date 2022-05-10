@@ -17,13 +17,13 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "card")
-public class Card implements Serializable {
+@Table(name = "cart")
+public class Cart implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @Column(name = "CARD_ID")
-  private String cardId;
+  @Column(name = "CART_ID")
+  private String cartId;
 
   @Column(name = "PRICE")
   private Integer price;
@@ -36,12 +36,12 @@ public class Card implements Serializable {
   @JoinColumn(name = "PRODUCT_ID")
   private Product product;
 
-  public String getCardId() {
-    return cardId;
+  public String getCartId() {
+    return cartId;
   }
 
-  public void setCardId(String cardId) {
-    this.cardId = cardId;
+  public void setCartId(String cartId) {
+    this.cartId = cartId;
   }
 
   public Integer getPrice() {
