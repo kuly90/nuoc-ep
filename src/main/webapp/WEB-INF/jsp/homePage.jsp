@@ -83,15 +83,6 @@ Author: Mr.Ly
                             <c:forEach var = "category" items = "${lstCategory}">
                                 <li><a href="#">${category.categoryName}</a></li>
                             </c:forEach>
-                            <!-- 
-                            <li><a onclick="showJuice()" style="cursor: pointer;">Nước Ép</a></li>
-                            <li><a onclick="showFreshFruit()" style="cursor: pointer;">Sinh Tố</a></li>
-                            <li><a href="#">Nước Mía</a></li>
-                            <li><a href="#">Sữa Chua</a></li>
-                            <li><a href="#">Trà</a></li>
-                            <li><a href="#">Nước Dừa</a></li>
-                            <li><a href="#">Trái Cây Tô</a></li>
-                            <li><a href="#">Nước Giải Khát</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -119,7 +110,7 @@ Author: Mr.Ly
                     </div>
                     <div class="hero__item set-bg" data-setbg="${contextPath}/resources/img/hero/banner.jpg">
                         <div class="hero__text">
-                            <span>NƯỚC ÉP - SINH TÔ</span>
+                            <span>NƯỚC ÉP - SINH TỐ</span>
                             <h2>Trái Cây <br/> 100% <br />Nguyên Chất </h2>
                             <p>Free Pickup and Delivery Available</p>
                             <a href="#" class="primary-btn">SHOP NOW</a>
@@ -182,11 +173,11 @@ Author: Mr.Ly
                       <div class="featured__item">
                           <div class="featured__item__pic set-bg" data-setbg="${contextPath}/resources/img/juice/${juice.imgName}"></div>
                           <div class="featured__item__text">
-                              <button onclick="minus()" type="button" class="btn btn-danger">
+                              <button onclick="ChangeNumber('0', '${juice.getProductId()}')" type="button" class="btn btn-danger">
                                   <span>-</span>
                               </button>
-                              <input type="number" min = "0" id = "" value="0" style="border: none; width: 20%">
-                              <button onclick="plus()" type="button" class="btn btn-primary" >
+                              <input type="text" name = "${juice.getProductId()}" value="0" style="border: none; width: 20%">
+                              <button onclick="ChangeNumber('1', '${juice.getProductId()}')" type="button" class="btn btn-primary" >
                                   <span>+</span>
                               </button>
                               <h5><a>${juice.productName}</a></h5>
@@ -223,6 +214,7 @@ Author: Mr.Ly
     <section class="latest-product spad">
         <div class="container">
             <div class="row">
+                <!-- Fresh Fruit -->
                 <div class="col-lg-4 col-md-6 fresh-fruit">
                     <div class="latest-product__text">
                         <h4>Sinh Tố</h4>
@@ -235,11 +227,11 @@ Author: Mr.Ly
                                                 <img src="${contextPath}/resources/img/fresh-fruit/${fresh.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
-                                                <button onclick="minus()" type="button" class="btn btn-danger">
+                                                <button onclick="ChangeNumber('0', '${fresh.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                                <button onclick="plus()" type="button" class="btn btn-primary" >
+                                                <input type="text" name = "${fresh.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${fresh.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
                                                 <span>${fresh.getProductName()}</span>
@@ -249,354 +241,98 @@ Author: Mr.Ly
                                     </c:forEach>
                                 </div>
                             </c:forEach>
-                            <%-- 
-                            <div class="latest-prdouct__slider__item">
-                                <a class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/fresh-fruit/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                         --%>
                         </div>
                     </div>
                 </div>
+                <!-- sugarJuice -->
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Nước Mía</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
+                            <c:forEach var = "i" begin = "0" end = "${sugJuiCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "sugarJuice" items = "${listLstSugJui.get(i)}">
+                                        <a class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/sugarcaneJuice/${sugarJuice.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="ChangeNumber('0', '${sugarJuice.getProductId()}')" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="text" name = "${sugarJuice.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${sugarJuice.getProductId()}')" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${sugarJuice.getProductName()}</span>
+                                                <h6>${sugarJuice.getPriceFormat()}</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
+                <!-- Yogurt -->
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Sữa Chua</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
+                            <c:forEach var = "i" begin = "0" end = "${yogurtCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "yogurt" items = "${listLstYogurt.get(i)}">
+                                        <a class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/yogurt/${yogurt.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="ChangeNumber('0', '${yogurt.getProductId()}')" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="text" name = "${yogurt.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${yogurt.getProductId()}')" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${yogurt.getProductName()}</span>
+                                                <h6>${yogurt.getPriceFormat()}</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
             </div>
             <hr/>
             <div class="row">
-                <div class="col-lg-4 col-md-6 fresh-fruit">
+                <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Trà</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 20%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
+                            <c:forEach var = "i" begin = "0" end = "${teaCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "tea" items = "${listLstTea.get(i)}">
+                                        <a  class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/tea/${tea.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="ChangeNumber('0', '${tea.getProductId()}')" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="text" name = "${tea.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${tea.getProductId()}')" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${tea.getProductName()}</span>
+                                                <h6>${tea.getPriceFormat()}</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -604,56 +340,28 @@ Author: Mr.Ly
                     <div class="latest-product__text">
                         <h4>Nước Dừa</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <button onclick="minus()" type="button" class="btn btn-danger">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="number" id = "" value="0" style="border: none; width: 25%">
-                                        <button onclick="plus()" type="button" class="btn btn-primary" >
-                                            <span>+</span>
-                                        </button>
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
+                            <c:forEach var = "i" begin = "0" end = "${coconutCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "coconut" items = "${listLstCoconut.get(i)}">
+                                        <a class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/coconut/${coconut.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="ChangeNumber('0', '${coconut.getProductId()}')" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="text" name = "${coconut.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${coconut.getProductId()}')" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${coconut.getProductName()}</span>
+                                                <h6>${coconut.getPriceFormat()}</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -661,35 +369,60 @@ Author: Mr.Ly
                     <div class="latest-product__text">
                         <h4>Trái Cây Tô</h4>
                         <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath}/resources/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
+                            <c:forEach var = "i" begin = "0" end = "${bowlCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "bowl" items = "${listLstBowl.get(i)}">
+                                        <a  class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/bowl/${bowl.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="ChangeNumber('0', '${bowl.getProductId()}')" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="text" name = "${bowl.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${bowl.getProductId()}')" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${bowl.getProductName()}</span>
+                                                <h6>${bowl.getPriceFormat()}</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Nước Giải Khát</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <c:forEach var = "i" begin = "0" end = "${softDrCol - 1}">
+                                <div class="latest-prdouct__slider__item">
+                                    <c:forEach var = "softDrink" items = "${listLstSoftDrink.get(i)}">
+                                        <a class="latest-product__item">
+                                            <div class="latest-product__item__pic">
+                                                <img src="${contextPath}/resources/img/softDrink/${softDrink.getImgName()}" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <button onclick="ChangeNumber('0', '${softDrink.getProductId()}')" type="button" class="btn btn-danger">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="text" name = "${softDrink.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <button onclick="ChangeNumber('1', '${softDrink.getProductId()}')" type="button" class="btn btn-primary" >
+                                                    <span>+</span>
+                                                </button>
+                                                <span>${softDrink.getProductName()}</span>
+                                                <h6>${softDrink.getPriceFormat()}</h6>
+                                            </div>
+                                        </a>
+                                    </c:forEach>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -767,10 +500,14 @@ Author: Mr.Ly
     </footer>
     <!-- Footer Section End -->
       <div class="container" style="position: relative;">
-            <button onclick="shoping-cart()" type="button" class="btn btn-danger" style="position: fixed; bottom: 1%; right:20%; z-index: 10;"> Giao Hàng
-                <span class="badge badge-light">99</span>
-            </button>
-        </div>
+          <button onclick="shopingCart()" type="button" class="btn btn-danger" style="position: fixed; bottom: 1%; right:20%; z-index: 10;"> Giao Hàng
+              <span class="badge badge-light" id ="shoppingCart">0</span>
+          </button>
+      </div>
+      <form class="field_wrapper" method = "POST">
+       </form>
+       <form class="cart_item" method = "POST">
+       </form>
 
     <!-- Js Plugins -->
     <script src="${contextPath}/resources/js/jquery-3.3.1.min.js"></script>
@@ -781,7 +518,7 @@ Author: Mr.Ly
     <script src="${contextPath}/resources/js/mixitup.min.js"></script>
     <script src="${contextPath}/resources/js/owl.carousel.min.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
-
+    <script src="${contextPath}/resources/js/ly.js"></script>
 </body>
 
 </html>

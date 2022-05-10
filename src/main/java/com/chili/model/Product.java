@@ -22,7 +22,7 @@ public class Product implements Serializable  {
   private static final long serialVersionUID = 1L;
   @Id
   @Column(name = "PRODUCT_ID")
-  private String categoryId;
+  private String productId;
 
   @Column(name = "PRODUCT_NAME")
   private String productName;
@@ -36,8 +36,18 @@ public class Product implements Serializable  {
   @Column(name = "TYPE")
   private String type;
   
+  @Column(name = "QUANTITY")
+  private Integer quantity;
 
-  public String getType() {
+  public Integer getQuantity() {
+	return quantity;
+}
+
+public void setQuantity(Integer quantity) {
+	this.quantity = quantity;
+}
+
+public String getType() {
   return type;
 }
 
@@ -49,16 +59,16 @@ public class Product implements Serializable  {
   @JoinColumn(name = "CATEGORY_ID")
   private Category category;
 
-  public String getCategoryId() {
-    return categoryId;
-  }
 
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
+  public String getProductId() {
+    return productId;
+}
 
+  public void setProductId(String productId) {
+    this.productId = productId;
+}
 
-  public String getProductName() {
+public String getProductName() {
     return productName;
   }
 

@@ -113,7 +113,7 @@
         smartSpeed: 1200,
         autoHeight: false,
         autoplay: true,
-        autoplayTimeout:15000
+        autoplayTimeout:20000
     });
 
     /*-----------------------------
