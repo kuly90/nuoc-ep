@@ -176,7 +176,7 @@ Author: Mr.Ly
                               <button onclick="ChangeNumber('0', '${juice.getProductId()}')" type="button" class="btn btn-danger">
                                   <span>-</span>
                               </button>
-                              <input type="text" name = "${juice.getProductId()}" value="0" style="border: none; width: 20%">
+                              <input readonly="readonly" type="text" name = "${juice.getProductId()}" value="0" style="border: none; width: 20%">
                               <button onclick="ChangeNumber('1', '${juice.getProductId()}')" type="button" class="btn btn-primary" >
                                   <span>+</span>
                               </button>
@@ -230,7 +230,7 @@ Author: Mr.Ly
                                                 <button onclick="ChangeNumber('0', '${fresh.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${fresh.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${fresh.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${fresh.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
@@ -260,7 +260,7 @@ Author: Mr.Ly
                                                 <button onclick="ChangeNumber('0', '${sugarJuice.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${sugarJuice.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${sugarJuice.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${sugarJuice.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
@@ -290,7 +290,7 @@ Author: Mr.Ly
                                                 <button onclick="ChangeNumber('0', '${yogurt.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${yogurt.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${yogurt.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${yogurt.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
@@ -316,13 +316,13 @@ Author: Mr.Ly
                                     <c:forEach var = "tea" items = "${listLstTea.get(i)}">
                                         <a  class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="${contextPath}/resources/img/tea/${tea.getImgName()}" alt="">
+                                                <img src="${contextPath}/resources/img/product/${tea.getImgName()}" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <button onclick="ChangeNumber('0', '${tea.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${tea.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${tea.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${tea.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
@@ -351,7 +351,7 @@ Author: Mr.Ly
                                                 <button onclick="ChangeNumber('0', '${coconut.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${coconut.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${coconut.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${coconut.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
@@ -380,7 +380,7 @@ Author: Mr.Ly
                                                 <button onclick="ChangeNumber('0', '${bowl.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${bowl.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${bowl.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${bowl.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>
@@ -412,7 +412,7 @@ Author: Mr.Ly
                                                 <button onclick="ChangeNumber('0', '${softDrink.getProductId()}')" type="button" class="btn btn-danger">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="text" name = "${softDrink.getProductId()}" value="0" style="border: none; width: 20%">
+                                                <input readonly="readonly" type="text" name = "${softDrink.getProductId()}" value="0" style="border: none; width: 20%">
                                                 <button onclick="ChangeNumber('1', '${softDrink.getProductId()}')" type="button" class="btn btn-primary" >
                                                     <span>+</span>
                                                 </button>

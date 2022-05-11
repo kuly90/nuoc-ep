@@ -30,6 +30,12 @@ Author: Mr.Ly
     <link rel="stylesheet" href="${contextPath}/resources/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="${contextPath}/resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css" type="text/css">
+    <style type="text/css">
+      .shoping__cart__table table tbody tr td{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    </style>
   </head>
 
   <body>
@@ -111,19 +117,20 @@ Author: Mr.Ly
                                 <c:forEach var="cart" items="${lstCart}">
                                     <tr>
                                         <td class="shoping__cart__item">
-                                            <img src="${contextPath}/resources/img/product/${cart.product.imgName}" alt="">
+                                            <input type="hidden" name = "listCart" value = "${cart.cartId}">
+                                            <img style="max-width: 15%;" src="${contextPath}/resources/img/product/${cart.product.imgName}" alt="">
                                             <h5>
                                                 <c:choose>
                                                     <c:when test="${cart.product.category.categoryId eq 'CLI01VI'}">
                                                       Nước Ép
                                                     </c:when>
-                                                    <c:when test="${cart.product.category.categoryId eq 'CLI01VI'}">
+                                                    <c:when test="${cart.product.category.categoryId eq 'CLI01EN'}">
                                                       Juice
                                                     </c:when>
                                                     <c:when test="${cart.product.category.categoryId eq 'CLI02VI'}">
                                                       Sinh Tố
                                                     </c:when>
-                                                    <c:when test="${cart.product.category.categoryId eq 'CLI02VI'}">
+                                                    <c:when test="${cart.product.category.categoryId eq 'CLI02EN'}">
                                                       Fresh Fruit
                                                     </c:when>
                                                 </c:choose>
@@ -131,19 +138,23 @@ Author: Mr.Ly
                                             </h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                            ${cart.product.getPriceFormat()} VND
+                                            <span class="${cart.product.productId}">${cart.product.getPriceFormat()}</span>
+                                            <span>VND</span>
                                         </td>
                                         <td class="shoping__cart__quantity">
-                                            <button onclick="ChangeNumberCart('0', '${cart.product.productId}')" type="button" class="btn btn-danger">
+                                            <button onclick="ChangeNumberCart('0', '${cart.product.productId}', '${cart.cartId}')" type="button" class="btn btn-danger">
                                                 <span>-</span>
                                             </button>
-                                            <input type="text" name = "${cart.product.productId}" value="${cart.product.quantity}" style="border: none; width: 20%">
-                                            <button onclick="ChangeNumberCart('1', '${cart.product.productId}')" type="button" class="btn btn-primary" >
+                                            <input onchange="ChangeNumberCart('3', '${cart.product.productId}', '${cart.cartId}')" 
+                                                type="text" id = "${cart.product.productId}" value="${cart.product.quantity}"
+                                                style="border: none; width: 20%" name = "listQuantity">
+                                            <button onclick="ChangeNumberCart('1', '${cart.product.productId}', '${cart.cartId}')" type="button" class="btn btn-primary" >
                                                 <span>+</span>
                                             </button>
                                         </td>
                                         <td class="shoping__cart__total">
-                                            ${card.getPriceFormat()} VND
+                                            <span name = "cardPrice" class="${cart.cartId} cardPrice">${cart.getPriceFormat()}</span>
+                                            <span>VND</span>
                                         </td>
                                         <td class="shoping__cart__item__close">
                                             <span class="icon_close"></span>
@@ -156,30 +167,16 @@ Author: Mr.Ly
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="shoping__cart__btns">
                         <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            Upadate Cart</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
+                    <div class="shoping__checkout" style="margin-top: 0;">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
+                            <li>Total <span>&nbsp; VND </span><span id = "orderPrice">&nbsp; ${order.getPriceFormat()}</span></li>
                         </ul>
                         <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>

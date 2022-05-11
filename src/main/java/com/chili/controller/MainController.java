@@ -175,9 +175,13 @@ public class MainController {
           @RequestParam(value = "lstProductId") List<String> lstProductId,
           @RequestParam(value = "lstQuantity") List<Integer> lstQuantity) {
 
+    Order order = new Order();
+    UUID uuid = UUID.randomUUID();
+    order.setOrderId("ord-" + uuid.toString());
+    int priceOfOrder = 0;
     List<Cart> lstCart = new ArrayList<Cart>();
     for (int i = 0; i < lstProductId.size(); i++) {
-        UUID uuid = UUID.randomUUID();
+        uuid = UUID.randomUUID();
         // new instance card
         Cart cart = new Cart();
         // new instance Product
@@ -187,12 +191,17 @@ public class MainController {
         // set price
         int priceOfCard = lstQuantity.get(i) * product.getPrice();
         // set info for card
-        cart.setCartId(uuid.toString());
+        cart.setCartId("cart-" + uuid.toString());
         cart.setProduct(product);
         cart.setPrice(priceOfCard);
         lstCart.add(cart);
+        priceOfOrder = priceOfOrder + priceOfCard;
     }
+    order.setLstCard(lstCart);
+    order.setPrice(priceOfOrder);
+    
     model.addAttribute("lstCart", lstCart);
+    model.addAttribute("order", order);
     return "shoppingCart";
   }
 

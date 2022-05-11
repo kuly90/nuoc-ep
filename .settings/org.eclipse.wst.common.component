@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="java-output-path" value="/spring-boot-voting/target/classes"/>
-        <property name="context-root" value="spring-boot-juicefruit"/>
+        <property name="context-root" value="spring-boot-voting"/>
     </wb-module>
 </project-modules>

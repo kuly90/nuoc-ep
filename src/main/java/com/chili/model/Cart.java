@@ -67,6 +67,7 @@ public class Cart implements Serializable {
   public void setProduct(Product product) {
     this.product = product;
   }
+
   public String getPriceFormat() {
     String price = String.valueOf(this.price);
     StringBuilder stbPri = new StringBuilder();
